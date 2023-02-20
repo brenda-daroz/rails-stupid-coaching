@@ -16,4 +16,12 @@ class QuestionsTest < ApplicationSystemTestCase
 
     assert_text "Great!"
   end
+
+  test "saying a phrase that ends with '?' yields a response telling you to go to work" do
+    visit ask_url
+    fill_in "question", with: "Hello?"
+    click_on "Ask"
+
+    assert_text "Silly question, get dressed and go to work!"
+  end
 end
